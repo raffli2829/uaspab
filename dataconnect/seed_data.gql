@@ -1,0 +1,77 @@
+mutation SeedDatabase @auth(level: PUBLIC, insecureReason: "This mutation is used to seed the database with initial data and is safe to expose.") @transaction {
+  genre_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      name: "Action",
+      createdAt: "2024-04-26T12:00:00Z"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      name: "Sci-Fi",
+      createdAt: "2024-04-26T12:00:00Z"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440002",
+      name: "Fantasy",
+      createdAt: "2024-04-26T12:00:00Z"
+    }
+  ])
+  anime_insertMany(data: [
+    {
+      id: "650e8400-e29b-41d4-a716-446655440000",
+      title: "Example Anime 1",
+      synopsis: "An action-packed anime.",
+      releaseYear: 2020,
+      episodeCount: 12,
+      genres: ["Action"],
+      imageUrl: "https://example.com/anime1.jpg",
+      createdAt: "2024-04-26T12:00:00Z"
+    },
+    {
+      id: "650e8400-e29b-41d4-a716-446655440001",
+      title: "Example Anime 2",
+      synopsis: "A sci-fi adventure anime.",
+      releaseYear: 2022,
+      episodeCount: 24,
+      genres: ["Sci-Fi"],
+      imageUrl: "https://example.com/anime2.jpg",
+      createdAt: "2024-04-26T12:00:00Z"
+    }
+  ])
+  user_insertMany(data: [
+    {
+      id: "750e8400-e29b-41d4-a716-446655440000",
+      displayName: "Example User 1",
+      email: "user1@example.com",
+      photoUrl: "https://example.com/user1.jpg",
+      createdAt: "2024-04-26T12:00:00Z"
+    },
+    {
+      id: "750e8400-e29b-41d4-a716-446655440001",
+      displayName: "Example User 2",
+      email: "user2@example.com",
+      photoUrl: "https://example.com/user2.jpg",
+      createdAt: "2024-04-26T12:00:00Z"
+    }
+  ])
+  userAnime_insertMany(data: [
+    {
+      userId: "750e8400-e29b-41d4-a716-446655440000",
+      animeId: "650e8400-e29b-41d4-a716-446655440000",
+      status: "Watching",
+      createdAt: "2024-04-26T12:00:00Z",
+      currentEpisode: 5,
+      lastUpdated: "2024-04-26T12:00:00Z",
+      userRating: 8
+    },
+    {
+      userId: "750e8400-e29b-41d4-a716-446655440001",
+      animeId: "650e8400-e29b-41d4-a716-446655440001",
+      status: "Completed",
+      createdAt: "2024-04-26T12:00:00Z",
+      currentEpisode: 24,
+      lastUpdated: "2024-04-26T12:00:00Z",
+      userRating: 10
+    }
+  ])
+}

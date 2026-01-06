@@ -1,0 +1,47 @@
+mutation SeedGenres @auth(level: PUBLIC, insecureReason: "This operation is used to seed the database with example data and does not require authentication.") {
+  genre_insertMany(data: [
+    { name: "Action" },
+    { name: "Comedy" },
+    { name: "Drama" },
+    { name: "Sci-Fi" },
+    { name: "Fantasy" }
+  ])
+}
+
+query ListAnimeByGenre($genre: String!) @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  animes(where: { genres: { includes: $genre } }) {
+    id
+    title
+    imageUrl
+    synopsis
+    episodeCount
+    releaseYear
+  }
+}
+
+mutation AddAnimeToUserList($animeId: UUID!, $status: String!, $currentEpisode: Int, $userRating: Int) @auth(level: USER) {
+  userAnime_insert(data: {
+    animeId: $animeId,
+    userId_expr: "auth.uid",
+    status: $status,
+    currentEpisode: $currentEpisode,
+    userRating: $userRating,
+    createdAt_expr: "request.time",
+    lastUpdated_expr: "request.time"
+  })
+}
+
+query GetUserAnimeList @auth(level: USER) {
+  userAnimes(where: { userId_expr: "auth.uid" }) {
+    id
+    anime {
+      id
+      title
+      imageUrl
+    }
+    status
+    currentEpisode
+    userRating
+    lastUpdated
+  }
+}

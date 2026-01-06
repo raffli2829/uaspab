@@ -1,0 +1,31 @@
+type User @table {
+  displayName: String!
+  createdAt: Timestamp!
+  email: String
+  photoUrl: String
+}
+
+type Anime @table {
+  title: String!
+  releaseYear: Int!
+  episodeCount: Int!
+  createdAt: Timestamp!
+  synopsis: String
+  imageUrl: String
+  genres: [String]
+}
+
+type UserAnime @table {
+  user: User!
+  anime: Anime!
+  status: String!
+  createdAt: Timestamp!
+  currentEpisode: Int
+  userRating: Int
+  lastUpdated: Timestamp
+}
+
+type Genre @table {
+  name: String!
+  createdAt: Timestamp!
+}
