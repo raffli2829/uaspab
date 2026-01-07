@@ -58,6 +58,8 @@ class FavoritesScreen extends StatelessWidget {
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       subtitle: Padding(
                         padding: EdgeInsets.only(top: 8.0),
@@ -66,6 +68,8 @@ class FavoritesScreen extends StatelessWidget {
                               ? '${anime.description.substring(0, 100)}...'
                               : anime.description,
                           style: TextStyle(color: Colors.grey[700]),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       trailing: IconButton(

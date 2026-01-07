@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import 'login_screen.dart';
+import 'main_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   @override
@@ -84,7 +85,10 @@ class _SignupScreenState extends State<SignupScreen> {
                             backgroundColor: Colors.green,
                           ),
                         );
-                        Navigator.pop(context);
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => MainScreen()),
+                        );
                       } catch (e) {
                         print('Signup error: $e');
                         ScaffoldMessenger.of(context).showSnackBar(

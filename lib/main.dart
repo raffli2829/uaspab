@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'providers/auth_provider.dart';
 import 'providers/favorites_provider.dart';
-import 'screens/main_screen.dart';
 import 'screens/login_screen.dart';
 
 void main() async {
@@ -64,20 +63,8 @@ class MyApp extends StatelessWidget {
             fillColor: Colors.white,
           ),
         ),
-        home: AuthWrapper(),
+        home: LoginScreen(),
       ),
     );
-  }
-}
-
-class AuthWrapper extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final authProvider = Provider.of<AuthProvider>(context);
-    if (authProvider.user != null) {
-      return MainScreen();
-    } else {
-      return LoginScreen();
-    }
   }
 }

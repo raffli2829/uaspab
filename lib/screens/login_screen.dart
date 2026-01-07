@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import 'signup_screen.dart';
-import 'home_screen.dart';
+import 'main_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -81,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             .signIn(_emailController.text, _passwordController.text);
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                          MaterialPageRoute(builder: (context) => MainScreen()),
                         );
                       } catch (e) {
                         print('Login error: $e');
