@@ -45,4 +45,16 @@ class AnimeService {
       throw Exception('Failed to load anime');
     }
   }
+
+  Future<List<Anime>> searchAnime(String query) async {
+    final response = await http.get(Uri.parse('$baseUrl/anime?q=$query&limit=20'));
+
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      final List<dynamic> animeList = data['data'];
+      return animeList.map((json) => Anime.fromJson(json)).toList();
+    } else {
+      throw Exception('Failed to search anime');
+    }
+  }
 }
