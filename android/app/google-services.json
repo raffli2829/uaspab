@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "90995859736",
+    "project_id": "anime-collection-1bd41",
+    "storage_bucket": "anime-collection-1bd41.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90995859736:android:d6b71ef6e51731ecccfe6d",
+        "android_client_info": {
+          "package_name": "com.example.uaspab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzcB0jTidAIxJbIe-3e5aUDxbls2dSu5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

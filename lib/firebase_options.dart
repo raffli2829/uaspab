@@ -49,11 +49,11 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'your-api-key',
-    appId: 'your-app-id',
-    messagingSenderId: 'your-messaging-sender-id',
+    apiKey: 'AIzaSyDzcB0jTidAIxJbIe-3e5aUDxbls2dSu5M',
+    appId: '1:90995859736:android:d6b71ef6e51731ecccfe6d',
+    messagingSenderId: '90995859736',
     projectId: 'anime-collection-1bd41',
-    storageBucket: 'anime-collection-1bd41.appspot.com',
+    storageBucket: 'anime-collection-1bd41.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
