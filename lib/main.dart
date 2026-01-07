@@ -5,10 +5,8 @@ import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'providers/auth_provider.dart';
 import 'providers/favorites_provider.dart';
+import 'screens/main_screen.dart';
 import 'screens/login_screen.dart';
-import 'screens/home_screen.dart';
-import 'screens/favorites_screen.dart';
-import 'screens/profile_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -67,11 +65,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
         home: AuthWrapper(),
-        routes: {
-          '/login': (context) => LoginScreen(),
-          '/favorites': (context) => FavoritesScreen(),
-          '/profile': (context) => ProfileScreen(),
-        },
       ),
     );
   }
@@ -82,7 +75,7 @@ class AuthWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final authProvider = Provider.of<AuthProvider>(context);
     if (authProvider.user != null) {
-      return HomeScreen();
+      return MainScreen();
     } else {
       return LoginScreen();
     }

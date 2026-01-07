@@ -9,12 +9,7 @@ class FavoritesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final favoritesProvider = Provider.of<FavoritesProvider>(context);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Favorite Anime'),
-        centerTitle: true,
-      ),
-      body: favoritesProvider.favorites.isEmpty
+    return favoritesProvider.favorites.isEmpty
           ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +89,6 @@ class FavoritesScreen extends StatelessWidget {
                   );
                 },
               ),
-            ),
-    );
+            );
   }
 }

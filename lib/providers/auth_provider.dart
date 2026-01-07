@@ -22,6 +22,13 @@ class AuthProvider with ChangeNotifier {
     await _auth.createUserWithEmailAndPassword(email: email, password: password);
   }
 
+  Future<void> updateDisplayName(String displayName) async {
+    await _user?.updateDisplayName(displayName);
+    await _user?.reload();
+    _user = _auth.currentUser;
+    notifyListeners();
+  }
+
   Future<void> signOut() async {
     await _auth.signOut();
   }
